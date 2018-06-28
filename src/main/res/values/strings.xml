@@ -2,4 +2,10 @@
     <string name="app_name">My Application</string>
     <string name="title_activity_android_sample">AndroidSampleActivity</string>
     <string name="demostring">Demo</string>
+    <string name="number1">첫 번째 숫자</string>
+    <string name="number2">두 번째 숫자</string>
+    <string name="addButton">+</string>
+    <string name="subtractButton">-</string>
+    <string name="multiplyButton">*</string>
+    <string name="divideButton">/</string>
 </resources>
