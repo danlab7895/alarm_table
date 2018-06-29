@@ -8,4 +8,7 @@
     <string name="subtractButton">-</string>
     <string name="multiplyButton">*</string>
     <string name="divideButton">/</string>
+    <string name="title_activity_alarm_action">AlarmActionActivity</string>
+    <string name="notify">Notify</string>
+    <string name="notifyButton">Notify</string>
 </resources>
