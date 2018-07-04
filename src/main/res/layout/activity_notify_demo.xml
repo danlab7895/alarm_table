@@ -8,13 +8,86 @@
     tools:context=".NotifyDemoActivity">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="알림 생성"
-        android:onClick="createNotification"/>
+        android:onClick="createNotification"
+        android:text="@string/createAlarm" />
+
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="removeNotification"
+        android:text="@string/deleteAlarm" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="selectName">
+
+        <RadioButton
+            android:id="@+id/kjh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectName"
+            android:text="@string/kjh" />
+
+        <RadioButton
+            android:id="@+id/khw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectName"
+            android:text="@string/khw" />
+
+        <RadioButton
+            android:id="@+id/kyh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectName"
+            android:text="@string/kyh" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/result_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="알림 재거"
-        android:onClick="removeNotification"/>
+        android:layout_gravity="center_horizontal"
+        android:text="Hello Radio" />
+
+    <CheckBox
+        android:id="@+id/oneMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="selectItem"
+        android:text="1번" />
+
+    <CheckBox
+        android:id="@+id/twoMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="selectItem"
+        android:text="2번" />
+
+    <CheckBox
+        android:id="@+id/threeMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="selectItem"
+        android:text="3번" />
+
+    <TextView
+        android:id="@+id/final_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello Wrodl!" />
+
+    <Button
+        android:id="@+id/transButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="화면전환" />
+
+
 </LinearLayout>
