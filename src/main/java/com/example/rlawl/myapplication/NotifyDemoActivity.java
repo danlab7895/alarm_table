@@ -20,6 +20,7 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -82,8 +83,9 @@ public class NotifyDemoActivity extends AppCompatActivity {
         builder.setSmallIcon(R.mipmap.ic_launcher);
         if(name!=null){
             builder.setContentTitle(name);
-        }
-        else{
+        } else if (name =="") {
+            Toast.makeText(getApplication(),"Select Your Message Name", Toast.LENGTH_SHORT).show();
+        } else {
             builder.setContentTitle("알림 생성");
         }
         if(msg != null)
