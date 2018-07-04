@@ -83,9 +83,6 @@ public class NotifyDemoActivity extends AppCompatActivity {
         if(name!=null){
             builder.setContentTitle(name);
         }
-        else if(name == ""){
-            builder.setContentTitle("알림 생성");
-        }
         else{
             builder.setContentTitle("알림 생성");
         }
