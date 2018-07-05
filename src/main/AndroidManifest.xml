@@ -10,43 +10,41 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--혜원이가 만든 페이지-->
+        <!-- 혜원이가 만든 페이지 -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainAlarmActivity"></activity>
 
-        <activity android:name=".MainAlarmActivity">
-
-        </activity>
-
-        <!--사칙 연산 및 종료 알림 팝업창-->
+        <!-- 사칙 연산 및 종료 알림 팝업창 -->
         <activity android:name=".Calculator">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!--알람 기능 메인 페이지-->
-        <activity android:name=".NotifyDemoActivity" >
+        <!-- 알람 기능 메인 페이지 -->
+        <activity android:name=".NotifyDemoActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!--알람 기능 결과 페이지-->
+        <!-- 알람 기능 결과 페이지 -->
         <activity android:name=".ResultActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".DataBaseActivity"></activity>
     </application>
+
 </manifest>
