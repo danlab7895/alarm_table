@@ -19,6 +19,9 @@ public class ResultActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String data = intent.getStringExtra("value");
+        if(data == "" || data == null){
+            data = "선택된 인원이 없습니다.";
+        }
         TextView notifyText = (TextView)findViewById(R.id.notifyText);
         notifyText.setText(data);
     }
@@ -43,6 +46,14 @@ public class ResultActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
                                 finish();
+                            }
+                        })
+                        .setPositiveButton("Set", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(getApplication(),
+                                        NotifyDemoActivity.class);
+                                startActivity(intent);
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
