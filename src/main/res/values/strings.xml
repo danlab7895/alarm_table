@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FirstAndroid</string>
+    <string name="app_name">DataBaseAndroid</string>
     <string name="title_activity_android_sample">AndroidSampleActivity</string>
     <string name="demostring">Demo</string>
     <string name="number1">첫 번째 숫자</string>
@@ -20,4 +20,5 @@
     <string name="twoMsg">twoMsg</string>
     <string name="threeMsg">threeMsg</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_saved_alarm">SavedAlarm</string>
 </resources>
