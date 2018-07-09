@@ -13,8 +13,6 @@
         <!-- 혜원이가 만든 페이지 -->
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -22,7 +20,7 @@
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainAlarmActivity"></activity>
+        <activity android:name=".MainAlarmActivity" />
 
         <!-- 사칙 연산 및 종료 알림 팝업창 -->
         <activity android:name=".Calculator">
@@ -44,7 +42,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DataBaseActivity"></activity>
+
+        <!-- DB기능 Activity -->
+        <activity android:name=".DataBaseActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SavedAlarm">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ListViewResult"></activity>
     </application>
 
 </manifest>
