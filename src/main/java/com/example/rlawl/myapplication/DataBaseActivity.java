@@ -3,10 +3,12 @@ package com.example.rlawl.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DataBaseActivity extends AppCompatActivity {
 
@@ -34,57 +36,61 @@ public class DataBaseActivity extends AppCompatActivity {
     }
 
     public void newAlarm(View view) {
-        MyDBHandler dbHandler = new MyDBHandler(this,null,null,1);
+        if(Chtext()){
+            MyDBHandler dbHandler = new MyDBHandler(this,null,null,1);
 
-        int time = Integer.parseInt(timeBox.getText().toString());
-        int study = Integer.parseInt(studyBox.getText().toString());
-        int rest = Integer.parseInt(restBox.getText().toString());
-        int str = Integer.parseInt(strBox.getText().toString());
-        int sleep = Integer.parseInt(sleepBox.getText().toString());
+            int time = Integer.parseInt(timeBox.getText().toString());
+            int study = Integer.parseInt(studyBox.getText().toString());
+            int rest = Integer.parseInt(restBox.getText().toString());
+            int str = Integer.parseInt(strBox.getText().toString());
+            int sleep = Integer.parseInt(sleepBox.getText().toString());
 
-        Studytable studytable = new Studytable(nameBox.getText().toString(),time, study,rest,str,sleep);
-        dbHandler.addAltable(studytable);
-        idView.setText("Add Alarm!");
-        Clear();
-    }
-
-    public void findAlarm(View view) {
-        MyDBHandler dbHandler = new MyDBHandler(this,null,null,1);
-
-        Studytable studytable = dbHandler.findAltable(nameBox.getText().toString());
-
-        if(studytable != null){
-            idView.setText(String.valueOf(studytable.get_num()));
-            nameBox.setText(String.valueOf(studytable.get_name()));
-            timeBox.setText(String.valueOf(studytable.get_time()));
-            studyBox.setText(String.valueOf(studytable.get_study()));
-            restBox.setText(String.valueOf(studytable.get_rest()));
-            strBox.setText(String.valueOf(studytable.get_str()));
-            sleepBox.setText(String.valueOf(studytable.get_sleep()));
-        }
-        else{
-            idView.setText("No Match Found");
-        }
-    }
-
-    public void deleteAlarm(View view) {
-        MyDBHandler dbHandler = new MyDBHandler(this, null,null,1);
-        boolean result = dbHandler.deleteAltable(nameBox.getText().toString());
-        if(result){
-            idView.setText("Record Deleted!");
+            Studytable studytable = new Studytable(nameBox.getText().toString(),time, study,rest,str,sleep);
+            dbHandler.addAltable(studytable);
+            idView.setText("Add Alarm!");
             Clear();
         }
         else
-            idView.setText("No Match Found");
+            Toast.makeText(this,"Please not make blank!",Toast.LENGTH_SHORT).show();
+
     }
 
-    public void Clear(){
-        nameBox.setText("");
-        timeBox.setText("");
-        studyBox.setText("");
-        restBox.setText("");
-        strBox.setText("");
-        sleepBox.setText("");
+    public void findAlarm(View view) {
+        if(!TextUtils.isEmpty(nameBox.getText())){
+            MyDBHandler dbHandler = new MyDBHandler(this,null,null,1);
+
+            Studytable studytable = dbHandler.findAltable(nameBox.getText().toString());
+
+            if(studytable != null){
+                idView.setText(String.valueOf(studytable.get_num()));
+                nameBox.setText(String.valueOf(studytable.get_name()));
+                timeBox.setText(String.valueOf(studytable.get_time()));
+                studyBox.setText(String.valueOf(studytable.get_study()));
+                restBox.setText(String.valueOf(studytable.get_rest()));
+                strBox.setText(String.valueOf(studytable.get_str()));
+                sleepBox.setText(String.valueOf(studytable.get_sleep()));
+            }
+            else{
+                idView.setText("No Match Found");
+            }
+        }else
+            Toast.makeText(this,"Please not make blank!",Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void deleteAlarm(View view) {
+        if(!TextUtils.isEmpty(nameBox.getText())){
+            MyDBHandler dbHandler = new MyDBHandler(this, null,null,1);
+            boolean result = dbHandler.deleteAltable(nameBox.getText().toString());
+            if(result){
+                idView.setText("Record Deleted!");
+                Clear();
+            }
+            else
+                idView.setText("No Match Found");
+        }else
+            Toast.makeText(this,"Please not make blank!",Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -96,5 +102,27 @@ public class DataBaseActivity extends AppCompatActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void Clear(){
+        nameBox.setText("");
+        timeBox.setText("");
+        studyBox.setText("");
+        restBox.setText("");
+        strBox.setText("");
+        sleepBox.setText("");
+    }
+
+    //각 텍스트 박스가 비어있는지 체크
+    public boolean Chtext(){
+        if(TextUtils.isEmpty(nameBox.getText())||
+                TextUtils.isEmpty(timeBox.getText())||
+                TextUtils.isEmpty(studyBox.getText())||
+                TextUtils.isEmpty(restBox.getText())||
+                TextUtils.isEmpty(strBox.getText())||
+                TextUtils.isEmpty(sleepBox.getText()))
+            return false;
+        else
+            return true;
     }
 }
